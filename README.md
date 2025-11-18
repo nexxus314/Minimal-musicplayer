@@ -1,8 +1,3 @@
-Got you, senpai.
-Here is a **clean, professional, portfolio-ready README.md** for your repo — **no screenshots, no demo link, no unnecessary junk.**
-Just copy-paste this into your `README.md` file.
-
----
 
 ## **🎵 Minimal — A Clean & Simple React Music Player**
 
