@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Midnight Lo-Fi",
+    "artist": "Nexxus",
+    "album": "Late Night Sessions",
+    "year": 2023,
+    "genre": "Lo-Fi",
+    "thumbnail": "https://picsum.photos/seed/lofi1/600/600",
+    "audio": "https://example.com/audio/midnight-lofi.mp3",
+    "duration": 182
+  },
+  {
+    "id": 2,
+    "title": "Crystal Horizon",
+    "artist": "Aurora Flux",
+    "album": "Into the Sky",
+    "year": 2022,
+    "genre": "Electronic",
+    "thumbnail": "https://picsum.photos/seed/horizon/600/600",
+    "audio": "https://example.com/audio/crystal-horizon.mp3",
+    "duration": 198
+  },
+  {
+    "id": 3,
+    "title": "Neon Nights",
+    "artist": "CityPulse",
+    "album": "Streetlights",
+    "year": 2021,
+    "genre": "Synthwave",
+    "thumbnail": "https://picsum.photos/seed/neonnights/600/600",
+    "audio": "https://example.com/audio/neon-nights.mp3",
+    "duration": 193
+  },
+  {
+    "id": 4,
+    "title": "Serenity",
+    "artist": "Quiet Bloom",
+    "album": "Mind Garden",
+    "year": 2024,
+    "genre": "Ambient",
+    "thumbnail": "https://picsum.photos/seed/serenity/600/600",
+    "audio": "https://example.com/audio/serenity.mp3",
+    "duration": 220
+  },
+  {
+    "id": 5,
+    "title": "Sunrise Anthem",
+    "artist": "AeroVista",
+    "album": "Morning Lights",
+    "year": 2020,
+    "genre": "Pop",
+    "thumbnail": "https://picsum.photos/seed/sunriseanth/600/600",
+    "audio": "https://example.com/audio/sunrise-anthem.mp3",
+    "duration": 215
+  }
+]
