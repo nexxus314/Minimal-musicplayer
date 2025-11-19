@@ -15,8 +15,8 @@ setSearchQuery(e.target.value)
       <header className="text-gray-600 body-font">
         <div className="w-full flex flex-row items-center justify-between px-6  sm:px-8 py-4 gap-2">
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <span className="hidden sm:block font-mono text-lg md:text-xl whitespace-nowrap">M I N I M A L</span>
-            <span className="block sm:hidden font-mono text-2xl pt-2">
+            <span className="hidden sm:block font-absans text-lg md:text-xl whitespace-nowrap">M I N I M A L</span>
+            <span className="block sm:hidden font-absans text-2xl pt-2">
       <PiMusicNotesSimpleFill />
 
     </span>

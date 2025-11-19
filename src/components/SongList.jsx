@@ -6,7 +6,7 @@ const SongList = ({songs,setCurrentIndex,setShowList,setIsPlaying,isPlaying}) =>
   return (
     <>
     <div>
-      <h1 className="font-mono ml-5 text-xl">
+      <h1 className="font-absans ml-5 text-xl">
 SONGS
       </h1>
       <div>

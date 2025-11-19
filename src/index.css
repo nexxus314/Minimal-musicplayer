@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --font-absans: "Absans", sans-serif;
+}
+
+@font-face {
+  font-family: "Absans";
+  src: url('./assets/fonts/Absans-Regular.woff2') format('woff2'),
+       url('./assets/fonts/Absans-Regular.woff') format('woff'),
+       url('./assets/fonts/Absans-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+}

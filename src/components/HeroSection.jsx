@@ -4,12 +4,10 @@ import { GiFastBackwardButton } from "react-icons/gi";
 import { GiFastForwardButton } from "react-icons/gi";
 import { BsPlayCircle } from "react-icons/bs";
 
-const HeroSection = ({ song, prevSong, nextSong, isPlaying,setIsPlaying }) => {
+const HeroSection = ({ song, prevSong, nextSong, isPlaying, setIsPlaying }) => {
   const [seekBar, setSeekBar] = useState(0);
 
   const audioRef = useRef(null);
-
-  
 
   function ToggleMusic() {
     if (isPlaying) {
@@ -32,15 +30,20 @@ const HeroSection = ({ song, prevSong, nextSong, isPlaying,setIsPlaying }) => {
     setSeekBar(value);
   }
 
-  useEffect(()=>{
-  if (isPlaying){
-    audioRef.current.play();
-  }
-},[song])
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  }, [song]);
 
   return (
     <>
-      <audio ref={audioRef} src={song.audio} onTimeUpdate={updateSeekBar} onEnded={nextSong} />
+      <audio
+        ref={audioRef}
+        src={song.audio}
+        onTimeUpdate={updateSeekBar}
+        onEnded={nextSong}
+      />
 
       <section className="text-gray-700 body-font bg-gradient-to-br from-white via-gray-50 to-gray-100">
         <div
@@ -55,18 +58,18 @@ const HeroSection = ({ song, prevSong, nextSong, isPlaying,setIsPlaying }) => {
         >
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex justify-center">
             <img
-              className="object-cover object-center rounded-xl shadow-xl w-full max-w-[380px]"
+              className="object-cover object-center rounded-xl shadow-xl w-full max-w-[380px] hover:scale-105 transition-transform duration-300 ease-in-out"
               alt="hero"
               src={song.thumbnail}
             />
           </div>
 
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl  mb-4 font-medium text-gray-900 font-mono">
+            <h1 className="title-font sm:text-4xl text-3xl  mb-4 font-medium text-gray-900 font-absans">
               {song.title}
             </h1>
 
-            <p className="mb-8 leading-relaxed font-mono text-gray-600">
+            <p className="mb-8 leading-relaxed font-absans text-gray-600">
               {song.artist}
             </p>
             <div className="flex flex-col justify-center">
@@ -82,7 +85,7 @@ const HeroSection = ({ song, prevSong, nextSong, isPlaying,setIsPlaying }) => {
                 />
               </div>
 
-              <div className="flex justify-center gap-10 mb-10">
+              <div className="flex justify-center gap-10 mb-10 ">
                 <button onClick={prevSong}>
                   <GiFastBackwardButton size={60} />
                 </button>
