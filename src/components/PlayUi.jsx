@@ -47,8 +47,20 @@ const PlayUi = () => {
   fetchSong("weekend");
 }, []);
 
-  if (songs.length == 0) {
-    return <div className="text-center p-10 font-mono">Loading SongList..</div>;
+  if (songs.length == 0) {return (
+    <div className="text-center p-10 font-mono flex flex-col gap-4">
+      <a 
+        href="https://cors-anywhere.herokuapp.com/corsdemo"
+        target="_blank"
+        className="text-blue-600 underline"
+      >
+        Click here if this is your first time launching the player.
+        if not, ignore this message.
+      </a>
+
+      <span>Loading songs...</span>
+    </div>
+  );
   }
 
   function nextSong() {

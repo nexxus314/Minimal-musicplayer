@@ -76,6 +76,14 @@ npm run dev
 > ⚠️ **Deezer API requires a CORS proxy.**
 > This project currently uses a public temporary proxy.
 > For stable usage, host your own proxy server or switch to a different backend.
+⚠️ Important — Enable Deezer Demo API Before Using
+
+This project uses the Deezer demo CORS proxy for development.
+
+To enable music search:
+
+Visit
+👉 https://cors-anywhere.herokuapp.com/corsdemo
 
 ---
 
