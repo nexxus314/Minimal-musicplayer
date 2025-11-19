@@ -85,7 +85,7 @@ const HeroSection = ({ song, prevSong, nextSong, isPlaying, setIsPlaying }) => {
                 />
               </div>
 
-              <div className="flex justify-center gap-10 mb-10 ">
+              <div className="flex justify-center gap-10 mb-10 hover:scale-105 transition-transform duration-200 ease-in-out">
                 <button onClick={prevSong}>
                   <GiFastBackwardButton size={60} />
                 </button>
