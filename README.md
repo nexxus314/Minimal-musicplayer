@@ -11,6 +11,10 @@ This project focuses on learning React fundamentals, audio control handling, sta
 ## **✨ Features**
 
 ### 🎧 **Now Playing Screen**
+<img width="1909" height="906" alt="Screenshot 2025-11-19 171751" src="https://github.com/user-attachments/assets/acd82012-60b8-4987-9189-5ff279b98971" />
+<img width="265" height="593" alt="Screenshot 2025-11-19 171817" src="https://github.com/user-attachments/assets/5581cbb5-4992-4d84-99c8-2e6fbed3e860" />
+<img width="270" height="593" alt="Screenshot 2025-11-19 171829" src="https://github.com/user-attachments/assets/28107ebd-d209-4026-8807-907d0ef9271a" />
+<img width="1906" height="908" alt="Screenshot 2025-11-19 171733" src="https://github.com/user-attachments/assets/1b7d7d5e-aabe-4cea-b391-fc3aff1b2497" />
 
 * Displays song title, artist, and album art
 * Play / Pause / Next / Previous controls
