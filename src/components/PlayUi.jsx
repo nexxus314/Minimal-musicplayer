@@ -44,7 +44,7 @@ const PlayUi = () => {
     }
    
   useEffect(() => {
-  fetchSong("weekend");
+  fetchSong("death bed- powfu");
 }, []);
 
   if (songs.length == 0) {return (
