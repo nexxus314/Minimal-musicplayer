@@ -22,7 +22,7 @@ setSearchQuery(e.target.value)
     </span>
           </a>
           <div className="flex flex-row justify-center gap-2">
-            <input  className="p-2 rounded-lg text-center" type="text" placeholder="Search Songs..." onChange={handleSearchInputs} />
+            <input  className="p-2 rounded-lg text-xl text-center" type="text" placeholder="Search Songs..." onChange={handleSearchInputs} />
             <button>
               <CiSearch  className='cursor-pointer' onClick={()=>{
               SearchSong();
