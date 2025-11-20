@@ -1,121 +1,135 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
 import Footer from "./Footer";
 import SongList from "./SongList";
-//import SongList from "../data/SongList.json";
-import { useState, useEffect } from "react";
 
 const PlayUi = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [searchQuery,setSearchQuery]=useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [songs, setSongs] = useState([]);
-  const [showList,setShowList] = useState(false);
+  const [showList, setShowList] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  async function fetchSongs(query = "the weeknd") {
+    try {
+      const baseUrl =
+        "https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app";
 
-  
-    async function fetchSong(query="the weekend") {
-      try {
-       const proxy = "https://cors-anywhere.herokuapp.com/";
-        const url = `https://api.deezer.com/search?q=${encodeURIComponent(query)}`;
-        const res = await fetch (proxy+url);
-        const data = await res.json();
+      const url = `${baseUrl}/api/search/songs?query=${encodeURIComponent(
+        query
+      )}&limit=40`;
 
+      const res = await fetch(url);
+      const data = await res.json();
 
-        if (!data.data) {
-        console.error("Deezer returned empty results:", data);
-        return;
-      }
+      if (!data.data || !data.data.results) return [];
 
-        const formatted = data.data.map((item) => ({
-          title: item.title,
-          artist: item.artist.name,
-          thumbnail: item.album.cover_big, 
-          audio: item.preview,
-          duration:30,
-        }));
+      const formatted = data.data.results.map((song) => {
+        const bestAudio =
+          song.downloadUrl?.find((x) => x.quality === "320kbps") ||
+          song.downloadUrl?.find((x) => x.quality === "160kbps") ||
+          song.downloadUrl?.[0];
 
-        setSongs(formatted);
-        setCurrentIndex(0)
-      } catch (error) {
-        console.error("Error fetching SongList:", error);
-      }
+        const highResImage =
+          song.image?.[song.image.length - 1]?.url ||
+          song.image?.[0]?.url ||
+          "";
+
+        return {
+          id: song.id,
+          title: song.name || "Unknown Title",
+          artist: song.primaryArtists || "Unknown Artist",
+          thumbnail: highResImage,
+          audio: bestAudio?.url || "",
+          duration: song.duration || 0,
+        };
+      });
+
+      return formatted;
+    } catch (err) {
+      console.error("Error fetching songs:", err);
+      return [];
     }
-   
-  useEffect(() => {
-  fetchSong("death bed- powfu");
-}, []);
-
-  if (songs.length == 0) {return (
-    <div className="text-center p-10 font-mono flex flex-col gap-4">
-      <a 
-        href="https://cors-anywhere.herokuapp.com/corsdemo"
-        target="_blank"
-        className="text-blue-600 underline"
-      >
-        Click here if this is your first time launching the player.
-        if not, ignore this message.
-      </a>
-
-      <span>Loading songs...</span>
-    </div>
-  );
   }
 
+  useEffect(() => {
+    async function loadInitialSong() {
+      const initial = await fetchSongs("lofi-girl");
+      if (initial.length > 0) {
+        setSongs(initial);
+        setCurrentIndex(0);
+      }
+    }
+    loadInitialSong();
+  }, []);
+
+  
+  async function SearchSong() {
+    if (!searchQuery.trim()) return;
+
+    const results = await fetchSongs(searchQuery);
+
+    if (results.length > 0) {
+      setSongs(results);
+      setCurrentIndex(0);
+      setIsPlaying(true);
+      setShowList(true);
+    } else {
+      alert("No songs found!");
+    }
+  }
+
+
   function nextSong() {
-    setCurrentIndex((prev) => {
-      if (prev === songs.length - 1) return 0;
-      return prev + 1;
-      
-    });
+    setCurrentIndex((prev) => (prev === songs.length - 1 ? 0 : prev + 1));
   }
 
   function prevSong() {
-    setCurrentIndex((prev) => {
-      if (prev === 0) return songs.length - 1;
-      return prev - 1;
-    });
-  }
-  async function SearchSong(){
-
-    await fetchSong(searchQuery)
-    setCurrentIndex(0)
-
-
+    setCurrentIndex((prev) => (prev === 0 ? songs.length - 1 : prev - 1));
   }
 
+
+  if (songs.length === 0) {
+    return (
+      <div className="h-screen flex flex-col items-center justify-center gap-4">
+        <div className="animate-spin w-10 h-10 border-4 border-gray-300 border-t-transparent rounded-full"></div>
+        <p className="font-mono text-gray-600">Loading player...</p>
+      </div>
+    );
+  }
 
   const currentSong = songs[currentIndex];
+
   return (
     <div className="flex flex-col h-screen w-full overflow-hidden">
-      <Header 
-      searchQuery={searchQuery}
-      setSearchQuery={setSearchQuery}
-      SearchSong={SearchSong}
-      setShowList={setShowList}
+      <Header
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        SearchSong={SearchSong}
+        setShowList={setShowList}
       />
 
-      <div className="flex-1 overflow-hidden-auto">
-      {showList?(
-        <SongList 
-          songs={songs} 
-          setCurrentIndex={setCurrentIndex}
-          setShowList={setShowList}
-          isPlaying={isPlaying}
-  setIsPlaying={setIsPlaying}
-        />):(
-      
-        <HeroSection
-          song={currentSong}
-          nextSong={nextSong}
-          prevSong={prevSong}
+      <div className="flex-1 overflow-hidden overflow-y-auto">
+        {showList ? (
+          <SongList
+            songs={songs}
+            setCurrentIndex={setCurrentIndex}
+            setShowList={setShowList}
             isPlaying={isPlaying}
-  setIsPlaying={setIsPlaying}
-        />
+            setIsPlaying={setIsPlaying}
+          />
+        ) : (
+          <HeroSection
+            song={currentSong}
+            nextSong={nextSong}
+            prevSong={prevSong}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+          />
         )}
       </div>
-    
+
       <Footer />
     </div>
   );
