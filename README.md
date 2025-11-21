@@ -1,134 +1,145 @@
+⸻
 
-## **🎵 Minimal — A Clean & Simple React Music Player**
+🎵 Minimal — A Clean React Music Player (JioSaavn API)
 
-Minimal is a lightweight, modern music player built using **React + Tailwind CSS**.
-It supports searching tracks using the **Deezer API**, displays a clean “Now Playing” screen, provides basic playback controls, and includes an expandable **Song List** view.
+A beautifully simple, lightweight music player built using React + Tailwind, powered by the unofficial JioSaavn API, streaming high-quality MP4/AAC audio directly — with search, play/pause, next/previous controls, and a mobile-friendly UI.
 
-This project focuses on learning React fundamentals, audio control handling, state management, UI responsiveness, and API integration — all while keeping the design minimal.
+⸻
 
----
+🌟 Features
 
-## **✨ Features**
+✔ Search Songs (English + Hindi + all regional languages supported)
+✔ High-quality streaming (automatically selects 320kbps or next best)
+✔ Song List View + Player View
+✔ Minimal clean UI (header, hero section, footer)
+✔ Responsive design (mobile + desktop)
+✔ Album cover auto-fetch (highest resolution available)
+✔ State management using React Hooks
+✔ No backend needed – purely frontend powered
 
-### 🎧 **Now Playing Screen**
+⸻
+
+🛠 Tech Stack
+	•	React.js (Vite)
+	•	Tailwind CSS
+	•	React Icons
+	•	JioSaavn Unofficial API
+	•	Native HTML5 Audio
+
+⸻
+
+⚡ How It Works
+	1.	User enters a search query →
+	2.	App calls:
+
+https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app/api/search/songs?query=
+
+	3.	Response is parsed →
+	4.	Best audio URL is selected (320kbps → 160kbps → fallback)
+	5.	Song list loads →
+	6.	Player UI displays the current song, album art & controls
+
+⸻
+
+📸 Screenshots### 
+🎧 **Now Playing Screen**
 <img width="1909" height="906" alt="Screenshot 2025-11-19 171751" src="https://github.com/user-attachments/assets/acd82012-60b8-4987-9189-5ff279b98971" />
 <img width="265" height="593" alt="Screenshot 2025-11-19 171817" src="https://github.com/user-attachments/assets/5581cbb5-4992-4d84-99c8-2e6fbed3e860" />
 <img width="270" height="593" alt="Screenshot 2025-11-19 171829" src="https://github.com/user-attachments/assets/28107ebd-d209-4026-8807-907d0ef9271a" />
 <img width="1906" height="908" alt="Screenshot 2025-11-19 171733" src="https://github.com/user-attachments/assets/1b7d7d5e-aabe-4cea-b391-fc3aff1b2497" />
 
-* Displays song title, artist, and album art
-* Play / Pause / Next / Previous controls
-* Smoothly updating seek bar
-* Auto-play the selected song
-* Auto-play next song when the current preview ends
+🎧 Home / Player UI
 
-### 🔍 **Search Handling**
+📜 Song List
 
-* Search bar in the header
-* Fetches tracks from the **Deezer Search API**
-* Clicking the search icon opens the **Song List view**
+(Create a folder /screenshots and drop your images there — use the same names.)
 
-### 📃 **Song List View**
+⸻
 
-* Displays all search results
-* Clicking a song updates the current track
-* Automatically switches back to the Now Playing UI
-* Fully dynamic — no hardcoded data
+🚀 Run Locally
 
-### 📱 **Responsive UI**
+1. Clone Repo
 
-* Custom mobile header with icon logo
-* Clean layout for mobile, tablet, and desktop
-* Fluid album art scaling
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 
----
+2. Install Dependencies
 
-## **🧩 Tech Stack**
-
-* **React (Vite)**
-* **Tailwind CSS v4**
-* **React Icons**
-* **Deezer API** (via proxy due to CORS restrictions)
-
----
-
-## **⚙️ Installation & Setup**
-
-Clone the repository:
-
-```bash
-git clone https://github.com/nexxus314/Minimal-musicplayer.git
-cd Minimal-musicplayer
-```
-
-Install dependencies:
-
-```bash
 npm install
-```
 
-Run the development server:
+3. Start Dev Server
 
-```bash
 npm run dev
-```
 
-> ⚠️ **Deezer API requires a CORS proxy.**
-> This project currently uses a public temporary proxy.
-> For stable usage, host your own proxy server or switch to a different backend.
-⚠️ Important — Enable Deezer Demo API Before Using
+4. Build for Production
 
-This project uses the Deezer demo CORS proxy for development.
+npm run build
+npm run preview
 
-To enable music search:
 
-Visit
-👉 https://cors-anywhere.herokuapp.com/corsdemo
+⸻
 
----
+🔍 API Used
 
-## **📡 API Information**
+This project uses the open public proxy of JioSaavn:
 
-The project currently uses:
+https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app/api
 
-```
-https://api.deezer.com/search?q={query}
-```
+Endpoints used:
 
-Due to CORS limitations, requests are routed through:
+Endpoint	Purpose
+/search/songs?query=	Get songs by search keyword
+Fetches image, downloadUrl, duration, artists	For player UI
 
-```
-https://cors-anywhere.herokuapp.com/
-```
 
-This proxy is strictly for development and will rate-limit requests (429 errors).
-Future versions will replace it with a self-hosted or alternative backend.
+⸻
 
----
+📁 Project Structure
 
-## **🚀 Future Improvements**
+src/
+│
+├── components/
+│   ├── Header.jsx
+│   ├── HeroSection.jsx
+│   ├── SongList.jsx
+│   ├── Footer.jsx
+│
+├── App.jsx
+└── main.jsx
 
-* Replace Deezer with a stable backend
-* Add a custom local proxy server
-* Add playlists
-* Add favorites / saved songs
-* Add animations using Framer Motion
-* Add a mini-player footer
-* Add dark mode
-* Add waveform visualizer
-* Add offline caching
 
----
+⸻
 
-## **📄 License**
+🎮 Controls
+	•	Play / Pause
+	•	Next Song
+	•	Previous Song
+	•	Tap on a song to play
+	•	Switch between List view ↔ Player view
 
-This project is open-source under the **MIT License**.
+⸻
 
----
+🧩 Future Improvements
 
-## **👤 Author**
+🔹 Lyrics Support (JioSaavn has a lyrics endpoint)
+🔹 Playlist support
+🔹 UI themes (dark/light)
+🔹 Save recently played songs
+🔹 Offline local playlists
 
-**Nexxus (Adhithyan)**
-Minimalist React Developer
-Built with love & frustration over CORS.
+⸻
+
+🏆 Why This Project Is Good for a Resume
+	•	Uses real-time API integration
+	•	Handles media streaming
+	•	Clean React component architecture
+	•	Uses hooks & state management
+	•	Good demonstration of frontend problem-solving
+	•	Works on mobile, nice for interviewer demo
+
+⸻
+
+🙌 Credits
+	•	JioSaavn Unofficial API used for educational purposes
+	•	Built with ❤ by Adhithyan (nexxus314)
 
