@@ -22,10 +22,10 @@ const MiniPlayer = ({
           className="w-12 h-12 rounded-xl shadow-lg"
         />
         <div className="flex flex-col">
-        <h1 className="text-sm font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] marquee">
+        <h1 className="text-sm font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] ">
           {songs.title}
         </h1>
-        <p className="text-sm  lg:text-xl text-black marquee">{songs.artist}</p>
+        <p className="text-sm  lg:text-xl text-black">{songs.artist}</p>
         </div>
         <div className="flex flex-row justify-end align-center">
           <button

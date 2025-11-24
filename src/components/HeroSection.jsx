@@ -135,7 +135,7 @@ const HeroSection = ({
           <div className="flex flex-col w-full px-10 items-start text-2xl font-absans pt-15 lg:pb-[20] lg:pl-50">
             <div className="flex flex-row justify-between gap-50 ">
               <div className="text-gray-600 ">Album</div>
-              <button className="text-black">
+              <button className="text-black lg:ml-50">
                 <CiCircleChevDown
                 className="hover:scale-110 transition-transform duration-400 ease-in-out"
                   size={40}
@@ -149,26 +149,27 @@ const HeroSection = ({
             <h2 className="text-black">{song.album}</h2>
           </div>
 
-          <div className="lg:flex-grow w-full px-10  flex flex-col md:items-start md:text-left text-black lg:items-center text-left lg:pr-70 dark:text-white lg:mt-20 mt-40 lg:pl-50">
+          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white lg:mt-20 mt-40 lg:pl-50">
             <p className=" font-absans text-gray-600 text-xl">{song.artist}</p>
-            <h1 className="title-font sm:text-4xl text-2xl  mb-4 font-medium text-black font-poppins dark:text-black">
+            <h1 className="title-font sm:text-4xl text-2xl mb-4 font-medium text-black font-poppins whitespace-nowrap overflow-hidden dark:text-black">
               {song.title}
             </h1>
 
+            
+            </div>
             <div className="flex flex-col justify-start">
-              <div className="w-full mb-8 lg:mb-[20]">
+              <div className="w-full px-10 pt-10 mb-8 lg:pl-[100] ">
                 <input
                   type="range"
                   min="0"
                   max="100"
                   value={seekBar}
                   onChange={handleSeek}
-                  className="w-full h-1 bg-gray-300 rounded-full sm:max-w-[550px] appearance-none cursor-pointer
+                  className="w-full h-1 bg-gray-300 rounded-full  appearance-none cursor-pointer
       accent-[#368f8b]"
                 />
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
