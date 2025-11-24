@@ -151,7 +151,7 @@ const HeroSection = ({
 
           <div className="lg:flex-grow w-full px-10  flex flex-col md:items-start md:text-left text-black lg:items-center text-left lg:pr-70 dark:text-white lg:mt-20 mt-40 lg:pl-50">
             <p className=" font-absans text-gray-600 text-xl">{song.artist}</p>
-            <h1 className="title-font sm:text-4xl text-2xl  mb-4 font-medium text-black font-absans dark:text-black">
+            <h1 className="title-font sm:text-4xl text-2xl  mb-4 font-medium text-black font-poppins dark:text-black">
               {song.title}
             </h1>
 

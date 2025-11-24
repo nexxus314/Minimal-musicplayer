@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
 import SongList from "./SongList";
+import MiniPlayer from "./MiniPlayer";
 
 const PlayUi = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -105,8 +106,13 @@ const PlayUi = () => {
 
   return (
   <div className="relative h-screen w-full overflow-hidden">
+    {showList&&(<Header
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          SearchSong={SearchSong}
+          setShowList={setShowList}
+        />)}
 
-      {/* HERO – always on top */}
       <div
         className={`absolute inset-0 z-20 transition-transform duration-500 
                     ${showList ? "translate-y-full" : "translate-y-0"}`}
@@ -121,18 +127,12 @@ const PlayUi = () => {
         />
       </div>
 
-      {/* SONG LIST – underneath */}
       <div
         className={`absolute inset-0 z-10 overflow-y-auto bg-white 
                     transition-transform duration-500
                     ${showList ? "translate-y-0" : "translate-y-full"}`}
       >
-        <Header
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          SearchSong={SearchSong}
-          setShowList={setShowList}
-        />
+        
 
         <SongList
           songs={songs}
@@ -141,7 +141,19 @@ const PlayUi = () => {
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
         />
+
+        
+       
       </div>
+      
+       {showList&&(
+        <MiniPlayer songs={songs[currentIndex]}
+nextSong={nextSong}
+          setShowList={setShowList}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          />
+      ) }
   </div>
 );
 
