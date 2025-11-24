@@ -13,4 +13,14 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap; 
+
+
+  font-family:"satoshi";
+  src:url('./assets/fonts/Satoshi-Variable.ttf') format('ttf');
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
 }

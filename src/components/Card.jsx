@@ -4,7 +4,8 @@ const Card = ({track,onClick}) => {
   return (
     <div>
      <div
-      className="flex flex-row bg-white border font-absans border-gray-200 shadow-4xl rounded-xl p-4 cursor-pointer m-2 hover:bg-gray-50 transition"
+      className="flex flex-row bg-white border font-absans border-gray-200 shadow-4xl rounded-xl p-4 cursor-pointer m-2 hover:bg-gray-50 transition  "
+    
       onClick={onClick}
     >
       <img
