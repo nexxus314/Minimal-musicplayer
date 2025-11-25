@@ -14,6 +14,8 @@ const HeroSection = ({
   setShowList,
 }) => {
   const [seekBar, setSeekBar] = useState(0);
+  const [currentTime,setCurrentTime] =useState(0);
+  const [totalTime,setTotalTime] = useState(0);
 
   const audioRef = useRef(null);
   const startY = useRef(0);
@@ -59,12 +61,19 @@ const HeroSection = ({
     audioRef.current.currentTime = (value / 100) * total;
     setSeekBar(value);
   }
+    function formatTime(seconds){
+    if(!seconds) return "0:00";
+    const minutes = Math.floor(seconds/60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs<10?"0"+secs:secs}`;
+    }
 
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
     }
   }, [song]);
+  
 
   return (
     <>
@@ -72,9 +81,20 @@ const HeroSection = ({
       <audio
         ref={audioRef}
         src={song.audio}
-        onTimeUpdate={updateSeekBar}
+        onTimeUpdate={()=>{
+          const audio = audioRef.current;
+          setCurrentTime(audio.currentTime)
+          setTotalTime(audio.duration)
+          updateSeekBar();
+
+        }}
+        onLoadedMetadata={() => {
+    setTotalTime(audioRef.current.duration);
+  }}
         onEnded={nextSong}
       />
+
+    
       <div
   className="
     absolute inset-0 
@@ -121,7 +141,7 @@ const HeroSection = ({
 
             <div
               className="flex  lg:mb-30 justify-center items-center gap-5 mb-10  ml-13 lg:ml-25
-             bg-[white] rounded-full shadow-xl backdrop-blur-xl  w-60 h-20 hover:scale-105 text-black transition-transform duration-200 ease-in-out absolute bottom-[-70px] lg:bottom-[-160px] "
+             bg-[#faedcd]/50 rounded-full shadow-xl backdrop-blur-xl  w-60 h-20 hover:scale-105 text-[#white] transition-transform duration-200 ease-in-out absolute bottom-[-70px] lg:bottom-[-160px] "
             >
               <button
                 onClick={prevSong}
@@ -150,10 +170,10 @@ const HeroSection = ({
             </div>
           </div>
           <div>
-          <div className="flex flex-col w-full px-10 items-start text-2xl font-absans pt-15 ">
+          <div className="flex flex-col w-full px-10 items-start text-2xl font-[Poppins] pt-15 ">
             <div className="flex flex-row justify-between gap-50 ">
-              <div className="text-black ">Album</div>
-              <button className="text-black lg:ml-50">
+              <div className="text-[#e9edc9] ">Album</div>
+              <button className="text-[#e9edc9] lg:ml-50">
                 <CiCircleChevDown
                 className="hover:scale-110 transition-transform duration-400 ease-in-out"
                   size={40}
@@ -164,12 +184,12 @@ const HeroSection = ({
               </button>
             </div>
 
-            <h2 className="text-black">{song.album}</h2>
+            <h2 className="text-[#fefae0]">{song.album}</h2>
           </div>
 
-          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white  mt-40 lg:pl-10">
-            <p className=" font-absans text-gray-600 text-xl">{song.artist}</p>
-            <h1 className="title-font sm:text-2xl text-2xl mb-4 font-medium text-black font-poppins  overflow-hidden dark:text-black">
+          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white  mt-40 lg:pl-10 font-[Poppins]">
+            <p className=" font-transcity text-[#e9edc9] text-xl">{song.artist}</p>
+            <h1 className="title-font sm:text-2xl lg:text-6xl text-4xl mb-4 font-medium text-[#fefae0] font-[Poppins] ">
               {song.title}
             </h1>
 
@@ -186,10 +206,16 @@ const HeroSection = ({
                   className="w-full 
       max-w-full 
       lg:max-w-[800px] 
-      h-1 bg-gray-300 rounded-full 
+      h-1 bg-[#fefae0] rounded-full 
       appearance-none cursor-pointer 
-      accent-[#368f8b]"
+      accent-[#a5a58d]"
                 />
+                <div className="flex justify-between w-full max-w-full lg:max-w-[800px] px-6 mt-1 text-[#fefae0] text-sm">
+  <span>{formatTime(currentTime)}</span>
+  <span>{formatTime(totalTime)}</span>
+</div>
+
+
                 </div>
               </div>
           </div>

@@ -6,9 +6,10 @@ const SongList = ({songs,setCurrentIndex,setShowList,setIsPlaying,isPlaying}) =>
   return (
     <>
     <div>
-      <h1 className="font-absans p-5 text-xl pt-25 lg:pt-20"> 
-SONGS
+      <h1 className="font-[Poppins] p-5 text-xl pt-25 lg:pt-20"> 
+Search Results:
       </h1>
+      
       <div>
         {songs.map((track,index)=>(
           <Card
