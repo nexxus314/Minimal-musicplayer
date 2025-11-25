@@ -5,10 +5,11 @@ import Card from "./Card";
 const SongList = ({songs,setCurrentIndex,setShowList,setIsPlaying,isPlaying}) => {
   return (
     <>
-    <div>
-      <h1 className="font-absans ml-5 text-xl">
-SONGS
+    <div className="bg-[#ccd5ae]">
+      <h1 className="font-[Poppins] bg-[e9edc9] p-5 text-xl pt-25 lg:pt-20"> 
+Search Results:
       </h1>
+      
       <div>
         {songs.map((track,index)=>(
           <Card
@@ -24,6 +25,7 @@ SONGS
         ))}
       </div>
     </div>
+    
     </>
   );
 };

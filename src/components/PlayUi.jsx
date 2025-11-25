@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
-import Footer from "./Footer";
 import SongList from "./SongList";
+import MiniPlayer from "./MiniPlayer";
 
 const PlayUi = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,12 +35,15 @@ const PlayUi = () => {
           song.image?.[song.image.length - 1]?.url ||
           song.image?.[0]?.url ||
           "";
-
+        const artistNames = 
+          song.artists?.primary?.map(a => a.name).join(', ') || 
+          "Unknown Artist";
         return {
           id: song.id,
           title: song.name || "Unknown Title",
-          artist: song.primaryArtists || "Unknown Artist",
+          artist: artistNames || "Unknown Artist",
           thumbnail: highResImage,
+          album:song.album.name,
           audio: bestAudio?.url || "",
           duration: song.duration || 0,
         };
@@ -55,7 +58,7 @@ const PlayUi = () => {
 
   useEffect(() => {
     async function loadInitialSong() {
-      const initial = await fetchSongs("lofi-girl");
+      const initial = await fetchSongs("Charlie-Puth-Howlong");
       if (initial.length > 0) {
         setSongs(initial);
         setCurrentIndex(0);
@@ -102,37 +105,58 @@ const PlayUi = () => {
   const currentSong = songs[currentIndex];
 
   return (
-    <div className="flex flex-col h-screen w-full overflow-hidden">
-      <Header
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        SearchSong={SearchSong}
-        setShowList={setShowList}
-      />
+  <div className="relative h-screen w-full overflow-hidden">
+    {showList&&(<Header
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          SearchSong={SearchSong}
+          setShowList={setShowList}
+        />)}
 
-      <div className="flex-1 overflow-hidden overflow-y-auto">
-        {showList ? (
-          <SongList
-            songs={songs}
-            setCurrentIndex={setCurrentIndex}
-            setShowList={setShowList}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-          />
-        ) : (
-          <HeroSection
-            song={currentSong}
-            nextSong={nextSong}
-            prevSong={prevSong}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-          />
-        )}
+      <div
+        className={`absolute inset-0 z-20 transition-transform duration-500 
+                    ${showList ? "translate-y-full" : "translate-y-0"}`}
+      >
+        <HeroSection
+          song={currentSong}
+          nextSong={nextSong}
+          prevSong={prevSong}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          setShowList={setShowList}
+        />
       </div>
 
-      <Footer />
-    </div>
-  );
+      <div
+        className={`absolute inset-0 z-10 overflow-y-auto bg-white 
+                    transition-transform duration-500
+                    ${showList ? "translate-y-0" : "translate-y-full"}`}
+      >
+        
+
+        <SongList
+          songs={songs}
+          setCurrentIndex={setCurrentIndex}
+          setShowList={setShowList}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
+
+        
+       
+      </div>
+      
+       {showList&&(
+        <MiniPlayer songs={songs[currentIndex]}
+nextSong={nextSong}
+          setShowList={setShowList}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          />
+      ) }
+  </div>
+);
+
 };
 
 export default PlayUi;
