@@ -171,7 +171,7 @@ const HeroSection = ({
             </div>
           </div>
           <div>
-          <div className="flex flex-col w-full px-10 items-start text-2xl font-[Poppins] pt-15 mb-20">
+          <div className="flex flex-col w-full px-10 items-start text-2xl font-[Poppins] pt-15 mb-40">
             <div className="flex flex-row justify-between gap-50 ">
               <div className="text-[#e9edc9] ">Album</div>
               <button className="text-[#e9edc9] lg:ml-50">
