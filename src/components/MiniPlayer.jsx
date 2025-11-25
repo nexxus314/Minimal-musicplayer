@@ -12,14 +12,14 @@ const MiniPlayer = ({
 }) => {
   return (
     <div
-      className="absolute bottom-0 left-0 right-0 z-[99] bg-gray-500/30 p-5 text-black rounded-full backdrop-blur-sm shadow-xl m-5"
+      className="absolute bottom-0 left-0 right-0 z-[99] bg-gray-500/30 p-3 text-black rounded-full backdrop-blur-sm shadow-xl m-5"
     >
       <div className="flex items-center justify-between">
         <img
           src={songs.thumbnail}
           sizes=""
           alt="thumbnail"
-          className="w-12 h-12 rounded-xl shadow-lg"
+          className="w-12 h-12 ml-5 rounded-xl shadow-lg"
         />
         <div className="flex flex-col">
         <h1 className="text-sm font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] ">
@@ -27,8 +27,8 @@ const MiniPlayer = ({
         </h1>
         <p className="text-sm  lg:text-xl text-black">{songs.artist}</p>
         </div>
-        <div className="flex flex-row justify-end align-center">
-          <button
+        <div className="flex flex-row justify-end mr-5 align-center">
+          <button className="hover:mouse-pointer"
             onClick={() => {
               setIsPlaying(false);
             }}
@@ -40,7 +40,7 @@ const MiniPlayer = ({
             )}
           </button>
 
-          <button onClick={nextSong}>
+          <button onClick={nextSong} className="hover:mouse-pointer">
             <BiSkipNext size={30} />
           </button>
         </div>

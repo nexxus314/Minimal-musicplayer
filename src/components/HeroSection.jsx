@@ -31,8 +31,8 @@ const HeroSection = ({
     const swipeDistance = endY.current - startY.current;
 
     if (swipeDistance > 80) {
-      // 80px threshold
-      setShowList(true); // 👈 OPEN SONG LIST
+      
+      setShowList(true); 
     }
 
     startY.current = 0;
@@ -68,15 +68,31 @@ const HeroSection = ({
 
   return (
     <>
+    <div className="relative w-full h-full">
       <audio
         ref={audioRef}
         src={song.audio}
         onTimeUpdate={updateSeekBar}
         onEnded={nextSong}
       />
+      <div
+  className="
+    absolute inset-0 
+    w-full h-full 
+    blur-3xl scale-125 opacity-50
+    -z-10 
+  "
+  style={{
+    backgroundImage: `url(${song.thumbnail})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+></div>
+<div className="absolute inset-0 bg-black/40 -z-[5]"></div>
+
 
       <section
-        className="text-gray-700 body-font bg-[white] dark:bg-[0f1108] "
+        className="relative z-10 text-gray-700 body-font bg-transparent dark:bg-transparent "
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -85,12 +101,14 @@ const HeroSection = ({
           className="
   mx-auto max-w-screen-xl w-full 
   flex md:flex-row flex-col 
+
+  lg:grid grid-cols-2 gap-4
   items-center 
   gap-12
   py-10
   min-h-screen
   dark:text-white
-  pt-3
+  pt-0
   
 "
         >
@@ -132,7 +150,7 @@ const HeroSection = ({
             </div>
           </div>
           <div>
-          <div className="flex flex-col w-full px-10 items-start text-2xl font-absans pt-15 lg:pb-[20] lg:pl-50">
+          <div className="flex flex-col w-full px-10 items-start text-2xl font-absans pt-15 ">
             <div className="flex flex-row justify-between gap-50 ">
               <div className="text-gray-600 ">Album</div>
               <button className="text-black lg:ml-50">
@@ -149,9 +167,9 @@ const HeroSection = ({
             <h2 className="text-black">{song.album}</h2>
           </div>
 
-          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white lg:mt-20 mt-40 lg:pl-50">
+          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white  mt-40 lg:pl-10">
             <p className=" font-absans text-gray-600 text-xl">{song.artist}</p>
-            <h1 className="title-font sm:text-4xl text-2xl mb-4 font-medium text-black font-poppins whitespace-nowrap overflow-hidden dark:text-black">
+            <h1 className="title-font sm:text-2xl text-2xl mb-4 font-medium text-black font-poppins  overflow-hidden dark:text-black">
               {song.title}
             </h1>
 
@@ -165,7 +183,11 @@ const HeroSection = ({
                   max="100"
                   value={seekBar}
                   onChange={handleSeek}
-                  className="w-full h-1 bg-gray-300 rounded-full  appearance-none cursor-pointer
+                  className="w-full 
+      max-w-full 
+      lg:max-w-[800px] 
+      h-1 bg-gray-300 rounded-full 
+      appearance-none cursor-pointer 
       accent-[#368f8b]"
                 />
                 </div>
@@ -173,6 +195,7 @@ const HeroSection = ({
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 };
