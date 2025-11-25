@@ -24,7 +24,7 @@ const MiniPlayer = ({
           className="w-12 h-12  rounded-full shadow-lg"
         />
         <div className="flex flex-col">
-        <h1 className="text-sm font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] " >
+        <h1 className="text-sm font-[Poppins] font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] " >
           {songs.title}
         </h1>
         <p className="text-sm  lg:text-xl text-black">{songs.artist}</p>

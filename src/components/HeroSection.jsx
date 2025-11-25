@@ -133,6 +133,7 @@ const HeroSection = ({
 "
         >
           <div className="lg:max-w-lg  lg:w-full md:w-1/2 w-5/6 flex flex-col gap-5 justify-center relative lg:pl-15 ">
+          <p className="font-[Poppins] hidden lg:block lg:text-center text-[#e9edc9]">Now Playing</p>
             <img
               className="object-cover object-center lg:rounded-xl lg:ml-10 rounded-b-full w-full shadow-xl max-w-[380px] hover:scale-105 transition-transform duration-300 ease-in-out"
               alt="hero"
@@ -140,7 +141,7 @@ const HeroSection = ({
             />
 
             <div
-              className="flex  lg:mb-30 justify-center items-center gap-5 mb-10  ml-13 lg:ml-25
+              className="flex lg:mb-30 justify-center items-center gap-5 mb-10  ml-13 lg:ml-28
              bg-[#faedcd]/50 rounded-full shadow-xl backdrop-blur-xl  w-60 h-20 hover:scale-105 text-[#white] transition-transform duration-200 ease-in-out absolute bottom-[-70px] lg:bottom-[-160px] "
             >
               <button
@@ -170,7 +171,7 @@ const HeroSection = ({
             </div>
           </div>
           <div>
-          <div className="flex flex-col w-full px-10 items-start text-2xl font-[Poppins] pt-15 ">
+          <div className="flex flex-col w-full px-10 items-start text-2xl font-[Poppins] pt-15 mb-20">
             <div className="flex flex-row justify-between gap-50 ">
               <div className="text-[#e9edc9] ">Album</div>
               <button className="text-[#e9edc9] lg:ml-50">
@@ -187,8 +188,8 @@ const HeroSection = ({
             <h2 className="text-[#fefae0]">{song.album}</h2>
           </div>
 
-          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white  mt-40 lg:pl-10 font-[Poppins]">
-            <p className=" font-transcity text-[#e9edc9] text-xl">{song.artist}</p>
+          <div className="lg:flex-grow w-full px-10 lg:px-0 flex flex-col md:items-start md:text-left text-black lg:items-start text-left  dark:text-white lg:pl-10 font-[Poppins]">
+            <p className=" font-[Poppins] text-[#e9edc9] text-xl">{song.artist}</p>
             <h1 className="title-font sm:text-2xl lg:text-6xl text-4xl mb-4 font-medium text-[#fefae0] font-[Poppins] ">
               {song.title}
             </h1>
