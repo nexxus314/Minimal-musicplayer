@@ -43,7 +43,8 @@ https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app/api/search/
 
 📸 Screenshots### 
 🎧 **Now Playing Screen**
-<img width="1893" height="817" alt="Screenshot 2025-11-25 152938" src="https://github.com/user-attachments/assets/9c674c2e-552a-4f30-aeca-a0e00a77dbdb" />
+
+<img width="1911" height="913" alt="Screenshot 2025-11-25 154754" src="https://github.com/user-attachments/assets/b36cdc47-c18e-4280-89ce-ed6df134d97f" />
 <img width="1889" height="815" alt="Screenshot 2025-11-25 152949" src="https://github.com/user-attachments/assets/2e090cb9-18b2-41b3-a134-c0dd02810914" />
 <img width="265" height="587" alt="Screenshot 2025-11-25 153115" src="https://github.com/user-attachments/assets/36db60d4-5712-4a54-a113-43e7c64351b3" />
 <img width="265" height="588" alt="Screenshot 2025-11-25 153123" src="https://github.com/user-attachments/assets/ab3825c4-beaa-48aa-8701-9e24bc747114" />
