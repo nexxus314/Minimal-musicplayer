@@ -197,7 +197,7 @@ const HeroSection = ({
             
             </div>
             <div className="flex flex-col justify-start">
-              <div className="w-full px-10 pt-10 mb-8 lg:pl-[100] ">
+              <div className="w-full px-10 pt-10 mb-8 ">
                 <input
                   type="range"
                   min="0"
