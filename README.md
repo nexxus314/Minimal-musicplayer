@@ -43,12 +43,14 @@ https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app/api/search/
 
 📸 Screenshots### 
 🎧 **Now Playing Screen**
-<img width="1909" height="906" alt="Screenshot 2025-11-19 171751" src="https://github.com/user-attachments/assets/acd82012-60b8-4987-9189-5ff279b98971" />
-<img width="265" height="593" alt="Screenshot 2025-11-19 171817" src="https://github.com/user-attachments/assets/5581cbb5-4992-4d84-99c8-2e6fbed3e860" />
-<img width="270" height="593" alt="Screenshot 2025-11-19 171829" src="https://github.com/user-attachments/assets/28107ebd-d209-4026-8807-907d0ef9271a" />
-<img width="1906" height="908" alt="Screenshot 2025-11-19 171733" src="https://github.com/user-attachments/assets/1b7d7d5e-aabe-4cea-b391-fc3aff1b2497" />
+<img width="1893" height="817" alt="Screenshot 2025-11-25 152938" src="https://github.com/user-attachments/assets/9c674c2e-552a-4f30-aeca-a0e00a77dbdb" />
+<img width="1889" height="815" alt="Screenshot 2025-11-25 152949" src="https://github.com/user-attachments/assets/2e090cb9-18b2-41b3-a134-c0dd02810914" />
+<img width="265" height="587" alt="Screenshot 2025-11-25 153115" src="https://github.com/user-attachments/assets/36db60d4-5712-4a54-a113-43e7c64351b3" />
+<img width="265" height="588" alt="Screenshot 2025-11-25 153123" src="https://github.com/user-attachments/assets/ab3825c4-beaa-48aa-8701-9e24bc747114" />
+
 
 🎧 Home / Player UI
+
 
 📜 Song List
 
@@ -59,6 +61,7 @@ https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app/api/search/
 🚀 Run Locally
 
 1. Clone Repo
+
 
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
