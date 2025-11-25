@@ -152,7 +152,7 @@ const HeroSection = ({
           <div>
           <div className="flex flex-col w-full px-10 items-start text-2xl font-absans pt-15 ">
             <div className="flex flex-row justify-between gap-50 ">
-              <div className="text-gray-600 ">Album</div>
+              <div className="text-black ">Album</div>
               <button className="text-black lg:ml-50">
                 <CiCircleChevDown
                 className="hover:scale-110 transition-transform duration-400 ease-in-out"

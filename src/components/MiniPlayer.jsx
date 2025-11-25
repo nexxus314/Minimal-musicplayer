@@ -5,42 +5,44 @@ import { BiSkipNext } from "react-icons/bi";
 
 const MiniPlayer = ({
   songs,
-  isplaying,
+  isPlaying,
   setShowList,
   setIsPlaying,
   nextSong,
 }) => {
   return (
     <div
+    onClick={()=>setShowList(false)}
       className="absolute bottom-0 left-0 right-0 z-[99] bg-gray-500/30 p-3 text-black rounded-full backdrop-blur-sm shadow-xl m-5"
     >
       <div className="flex items-center justify-between">
         <img
+        onClick={()=>setShowList(false)}
           src={songs.thumbnail}
           sizes=""
           alt="thumbnail"
-          className="w-12 h-12 ml-5 rounded-xl shadow-lg"
+          className="w-12 h-12  rounded-full shadow-lg"
         />
         <div className="flex flex-col">
-        <h1 className="text-sm font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] ">
+        <h1 className="text-sm font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] " >
           {songs.title}
         </h1>
         <p className="text-sm  lg:text-xl text-black">{songs.artist}</p>
         </div>
-        <div className="flex flex-row justify-end mr-5 align-center">
-          <button className="hover:mouse-pointer"
+        <div className="flex flex-row justify-end mr-5 ">
+          <button className="hover:cursor-pointer"
             onClick={() => {
-              setIsPlaying(false);
+              setIsPlaying(!isPlaying);
             }}
           >
-            {isplaying ? (
+            {isPlaying ? (
               <BsPauseCircle size={30} />
             ) : (
               <BsPlayCircle size={30} />
             )}
           </button>
 
-          <button onClick={nextSong} className="hover:mouse-pointer">
+          <button onClick={nextSong} className="hover:cursor-pointer">
             <BiSkipNext size={30} />
           </button>
         </div>
