@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "./Header";
 import Card from "./Card";
+import Snowfall from 'react-snowfall'
 
 const SongList = ({songs,setCurrentIndex,setShowList,setIsPlaying,isPlaying}) => {
   return (
     <>
+    <Snowfall color="white"/>
     <div className="bg-[#ccd5ae]">
       <h1 className="font-[Poppins] bg-[e9edc9] p-5 text-xl pt-25 lg:pt-20"> 
 Search Results:
