@@ -142,7 +142,7 @@ const HeroSection = ({
 
             <div
               className="flex lg:mb-30 justify-center items-center gap-5 mb-10  ml-13 lg:ml-28
-             bg-[#faedcd]/50 rounded-full shadow-xl backdrop-blur-xl  w-60 h-20 hover:scale-105 text-[#white] transition-transform duration-200 ease-in-out absolute bottom-[-70px] lg:bottom-[-160px] "
+              rounded-full shadow-2xl backdrop-blur-xl  w-60 h-20 hover:scale-105 text-[#white] transition-transform duration-200 ease-in-out absolute bottom-[-70px] lg:bottom-[-160px] "
             >
               <button
                 onClick={prevSong}

@@ -13,7 +13,9 @@ Search Results:
       </h1>
       
       <div>
+        
         {songs.map((track,index)=>(
+          
           <Card
           key={index}
           track={track}
@@ -21,6 +23,7 @@ Search Results:
             setCurrentIndex(index);
             setIsPlaying(true);
             setShowList(false);
+            
             
           }}
           />
