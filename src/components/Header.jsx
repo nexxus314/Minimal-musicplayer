@@ -7,7 +7,11 @@ const Header = ({ searchQuery, setSearchQuery, SearchSong, setShowList }) => {
   const handleSearchInputs = (e) => {
     setSearchQuery(e.target.value);
   };
-
+  const handleSearch = () => {
+    SearchSong(); 
+    setShowList(true);
+  }
+  
   return (
     <div>
       <header className="text-gray-600 body-font  bg-[ccd5ae]/30 rounded-4xl backdrop-blur-sm mx-4 mt-4 fixed top-0 left-0 right-0 shadow-xl z-50 ">
@@ -40,10 +44,7 @@ const Header = ({ searchQuery, setSearchQuery, SearchSong, setShowList }) => {
             <button>
               <CiSearch
                 className="cursor-pointer"
-                onClick={() => {
-                  SearchSong();
-                  setShowList(true);
-                }}
+                onClick={handleSearch}
                 size={30}
               />
             </button>
