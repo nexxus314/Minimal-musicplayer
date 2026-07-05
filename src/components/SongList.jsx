@@ -4,6 +4,14 @@ import Card from "./Card";
 import Snowfall from 'react-snowfall'
 
 const SongList = ({songs,setCurrentIndex,setShowList,setIsPlaying,isPlaying}) => {
+
+const handleSongClick = (index) => {
+  setCurrentIndex(index);
+  setIsPlaying(true);
+  setShowList(false);
+}
+
+
   return (
     <>
     <Snowfall color="white"/>
@@ -19,13 +27,7 @@ Search Results:
           <Card
           key={index}
           track={track}
-          onClick={()=>{
-            setCurrentIndex(index);
-            setIsPlaying(true);
-            setShowList(false);
-            
-            
-          }}
+          onClick={handleSongClick}
           />
         ))}
       </div>
