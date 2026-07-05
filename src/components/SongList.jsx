@@ -3,36 +3,36 @@ import Header from "./Header";
 import Card from "./Card";
 import Snowfall from 'react-snowfall'
 
-const SongList = ({songs,setCurrentIndex,setShowList,setIsPlaying,isPlaying}) => {
+const SongList = ({ songs, setCurrentIndex, setShowList, setIsPlaying, isPlaying }) => {
 
-const handleSongClick = (index) => {
-  setCurrentIndex(index);
-  setIsPlaying(true);
-  setShowList(false);
-}
+  const handleSongClick = (index) => {
+    setCurrentIndex(index);
+    setIsPlaying(true);
+    setShowList(false);
+  }
 
 
   return (
     <>
-    <Snowfall color="white"/>
-    <div className="bg-[#ccd5ae]">
-      <h1 className="font-[Poppins] bg-[e9edc9] p-5 text-xl pt-25 lg:pt-20"> 
-Search Results:
-      </h1>
-      
-      <div>
-        
-        {songs.map((track,index)=>(
-          
-          <Card
-          key={index}
-          track={track}
-          onClick={handleSongClick}
-          />
-        ))}
+      <Snowfall color="white" />
+      <div className="bg-[#ccd5ae]">
+        <h1 className="font-[Poppins] bg-[e9edc9] p-5 text-xl pt-25 lg:pt-20">
+          Search Results:
+        </h1>
+
+        <div>
+
+          {songs.map((track, index) => (
+
+            <Card
+              key={index}
+              track={track}
+              onClick={() => handleSongClick(index)}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-    
+
     </>
   );
 };
