@@ -27,7 +27,7 @@ Search Results:
           <Card
           key={index}
           track={track}
-          onClick={handleSongClick}
+          onClick={() => handleSongClick(index)}
           />
         ))}
       </div>
