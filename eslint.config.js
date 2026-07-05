@@ -22,8 +22,83 @@ export default defineConfig([
         sourceType: 'module',
       },
     },
-    rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+   rules: {
+  /*
+   * JavaScript
+   */
+  'no-console': ['warn', { allow: ['warn', 'error'] }],
+  'no-debugger': 'error',
+  'no-alert': 'error',
+
+  'no-unused-vars': [
+    'error',
+    {
+      argsIgnorePattern: '^_',
+      varsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
     },
+  ],
+
+  eqeqeq: ['error', 'always'],
+  curly: ['error', 'all'],
+
+  'prefer-const': 'error',
+  'no-var': 'error',
+
+  'object-shorthand': ['error', 'always'],
+  'prefer-template': 'error',
+
+  /*
+   * Imports
+   */
+  'import/order': [
+    'error',
+    {
+      groups: [
+        'builtin',
+        'external',
+        'internal',
+        ['parent', 'sibling', 'index'],
+      ],
+      'newlines-between': 'always',
+      alphabetize: {
+        order: 'asc',
+        caseInsensitive: true,
+      },
+    },
+  ],
+
+  'import/no-duplicates': 'error',
+  'import/first': 'error',
+  'import/newline-after-import': ['error', { count: 1 }],
+
+  /*
+   * React
+   */
+  'react/react-in-jsx-scope': 'off',
+  'react/jsx-uses-react': 'off',
+
+  'react/prop-types': 'off',
+
+  'react/self-closing-comp': 'error',
+
+  'react/jsx-boolean-value': ['error', 'never'],
+
+  'react/jsx-curly-brace-presence': [
+    'error',
+    {
+      props: 'never',
+      children: 'never',
+    },
+  ],
+
+  'react/jsx-no-useless-fragment': 'error',
+
+  /*
+   * Hooks
+   */
+  'react-hooks/rules-of-hooks': 'error',
+  'react-hooks/exhaustive-deps': 'warn',
+},
   },
 ])
