@@ -1,4 +1,47 @@
- export async function fetchSongs(query = "the weeknd") {
+ interface Song {
+  id: string;
+  title: string;
+  artist: string;
+  thumbnail: string;
+  album: string;
+  audio: string;
+  duration: number;
+}
+
+interface DownloadUrl {
+  quality: string;
+  url: string;
+}
+
+interface Image {
+  url: string;
+}
+
+interface Artist {
+  name: string;
+}
+
+interface ApiSong {
+  id: string;
+  name: string;
+  downloadUrl?: DownloadUrl[];
+  image?: Image[];
+  artists?: {
+    primary?: Artist[];
+  };
+  album: {
+    name: string;
+  };
+  duration?: number;
+}
+
+interface ApiResponse {
+  data?: {
+    results: ApiSong[];
+  };
+}
+
+export async function fetchSongs(query = "the weeknd"): Promise<Song[]> {
     try {
       const baseUrl =
         "https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app";
@@ -12,7 +55,7 @@
 
       if (!data.data || !data.data.results) return [];
 
-      const formatted = data.data.results.map((song) => {
+      const formatted = data.data.results.map((song: ApiSong) => {
         const bestAudio =
           song.downloadUrl?.find((x) => x.quality === "320kbps") ||
           song.downloadUrl?.find((x) => x.quality === "160kbps") ||
