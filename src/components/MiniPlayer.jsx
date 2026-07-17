@@ -13,7 +13,7 @@ const MiniPlayer = ({
   return (
     <div
     onClick={()=>setShowList(false)}
-      className="absolute bottom-0 left-0 right-0 z-[99] bg-gray-500/30 p-3 text-black rounded-full backdrop-blur-sm shadow-xl m-5"
+      className="absolute w-[400px] bottom-0 left-[400px] right-0 z-[99] bg-gray-500/10 p-3 text-black rounded-full backdrop-blur-sm shadow-xl m-5"
     >
       <div className="flex items-center justify-between">
         <img
@@ -24,10 +24,10 @@ const MiniPlayer = ({
           className="w-12 h-12  rounded-full shadow-lg"
         />
         <div className="flex flex-col">
-        <h1 className="text-sm font-[Poppins] font-semibold lg:text-xl text-black truncate w-[150px] sm:w-[220px] " >
+        <h1 className="text-[10px] font-[Poppins] text-black font-semibold lg:text-lg truncate w-[150px] sm:w-[220px] " >
           {songs.title}
         </h1>
-        <p className="text-sm  lg:text-xl text-black">{songs.artist}</p>
+        <p className="text-sm  lg:text-sm text-gray-400">{songs.artist}</p>
         </div>
         <div className="flex flex-row justify-end mr-5 ">
           <button className="hover:cursor-pointer"

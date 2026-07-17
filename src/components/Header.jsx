@@ -22,8 +22,8 @@ const Header = ({ searchQuery, setSearchQuery, SearchSong, setShowList }) => {
               setShowList(false);
             }}
           >
-            <span className="hidden sm:block lg:text-4xl font-[transcityDemo] text-lg md:text-sm whitespace-nowrap ">
-              Basil
+            <span className="hidden sm:block text-blue-950 lg:text-4xl font-[Bungee] text-lg md:text-sm whitespace-nowrap ">
+              SPIDEY
             </span>
             <span className="block sm:hidden font-absans text-2xl pt-2">
               <PiMusicNotesSimpleFill />
