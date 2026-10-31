@@ -44,7 +44,7 @@ interface ApiResponse {
 export async function fetchSongs(query = "the weeknd"): Promise<Song[]> {
   try {
     const baseUrl =
-      "https://jiosaavn-c451wwyru-sumit-kolhes-projects-94a4846a.vercel.app";
+      "https://saavn.sumit.co";
 
     const url = `${baseUrl}/api/search/songs?query=${encodeURIComponent(
       query,
